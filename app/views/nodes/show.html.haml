@@ -1,0 +1,13 @@
+%p#notice= notice
+%p
+  %strong Ip:
+  = @node.ip
+%p
+  %strong Port:
+  = @node.port
+%p
+  %strong Raw response:
+  = @node.raw_response
+= link_to 'Edit', edit_node_path(@node)
+|
+= link_to 'Back', nodes_path

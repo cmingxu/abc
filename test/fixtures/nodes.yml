@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ip: MyString
+  port: MyString
+  raw_response: MyString
+
+two:
+  ip: MyString
+  port: MyString
+  raw_response: MyString

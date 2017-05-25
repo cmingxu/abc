@@ -1,0 +1,20 @@
+%p#notice= notice
+%h1 Apps
+%table
+  %thead
+    %tr
+      %th Id
+      %th Node
+      %th Raw response
+      %th{:colspan => "3"}
+  %tbody
+    - @apps.each do |app|
+      %tr
+        %td= app.id
+        %td= app.node_id
+        %td= app.raw_response
+        %td= link_to 'Show', app
+        %td= link_to 'Edit', edit_app_path(app)
+        %td= link_to 'Destroy', app, method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= link_to 'New App', new_app_path

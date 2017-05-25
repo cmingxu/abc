@@ -1,0 +1,13 @@
+%p#notice= notice
+%p
+  %strong Id:
+  = @app.id
+%p
+  %strong Node:
+  = @app.node_id
+%p
+  %strong Raw response:
+  = @app.raw_response
+= link_to 'Edit', edit_app_path(@app)
+|
+= link_to 'Back', apps_path
