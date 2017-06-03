@@ -81,4 +81,19 @@ class Pig
     end
   end
 
+  def self.decode_crackit
+    Node.redis.each do |node|
+      if node.crackit_content.blank? && JSON.parse(node.keys).include?("crackit")
+        begin
+          puts node.ip
+          redis = Redis.new(:host => node.ip, :port => node.port)
+          node.crackit_content = redis.get("crackit")
+          node.save
+        rescue Exception =>  e
+          puts e
+        end
+      end
+    end
+  end
+
 end

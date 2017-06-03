@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170525031136) do
+ActiveRecord::Schema.define(version: 20170530055634) do
 
   create_table "apps", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "app_id"
@@ -24,13 +24,13 @@ ActiveRecord::Schema.define(version: 20170525031136) do
     t.string   "ip"
     t.string   "port"
     t.text     "raw_response",    limit: 65535
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
     t.string   "source"
     t.text     "keys",            limit: 65535
     t.text     "crackit_content", limit: 65535
     t.string   "hostname"
-    t.text     "hostinfo",        limit: 65535
+    t.text     "hostinfo",        limit: 16777215
     t.text     "region_code",     limit: 65535
     t.text     "tags",            limit: 65535
     t.text     "area_code",       limit: 65535
@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 20170525031136) do
     t.text     "dma_code",        limit: 65535
     t.text     "country_code",    limit: 65535
     t.text     "org",             limit: 65535
-    t.text     "data",            limit: 65535
+    t.text     "data",            limit: 16777215
     t.text     "asn",             limit: 65535
     t.text     "city",            limit: 65535
     t.text     "isp",             limit: 65535
@@ -51,6 +51,8 @@ ActiveRecord::Schema.define(version: 20170525031136) do
     t.text     "ip_str",          limit: 65535
     t.text     "os",              limit: 65535
     t.text     "ports",           limit: 65535
+    t.string   "hacked_way"
+    t.string   "payload"
   end
 
 end
