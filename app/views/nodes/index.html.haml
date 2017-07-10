@@ -1,39 +1,41 @@
 = paginate @nodes
 
-.row
-  %h2
-    Redis Count:
-    = Node.redis.count
-
-  %h2
-    Marathon Count:
-    = Node.marathon.count
-
-%table.table.table-bordered
-  %thead
-    %tr
-      %th.col-lg-1 Ip
-      %th.col-lg-3 Apps
-      %th.col-lg-5{style: "width:30%"} Raw
-  %tbody
-    - @nodes.each do |node|
-      %tr
-        %td
-          = link_to node.ip, "http://#{node.ip}:#{node.port}", target: "_blank"
-          = node.port
-        %td= node.apps.map(&:app_id).join " "
-        %td
-          = node.keys
-          - if node.crackit_content
-            %hr
-            .text-muted crackit
-            %strong= node.crackit_content
-
-          %hr
-          = node.country_name
-          %strong= node.city
-          %strong.bg-danger= node.org
-
-
-%nav.navbar.fixed-bottom.navbar-light.bg-faded{style: 'position: fixed; bottom: 0px; right: 100px;'}
-  = paginate @nodes
+= box_helper do
+  = box_header_helper
+  = box_body_helper do
+    %h2
+      Redis Count:
+      = Node.redis.count
+   
+    %h2
+      Marathon Count:
+      = Node.marathon.count
+   
+    %table.table.table-bordered.table-stripped
+      %thead
+        %tr
+          %th.col-lg-1 Ip
+          %th.col-lg-3 Apps
+          %th.col-lg-5{style: "width:30%"} Raw
+      %tbody
+        - @nodes.each do |node|
+          %tr
+            %td
+              = link_to node.ip, "http://#{node.ip}:#{node.port}", target: "_blank"
+              = node.port
+            %td= node.apps.map(&:app_id).join " "
+            %td
+              = node.keys
+              - if node.crackit_content
+                %hr
+                .text-muted crackit
+                %strong= node.crackit_content
+    
+              %hr
+              = node.country_name
+              %strong= node.city
+              %strong.bg-danger= node.org
+    
+    
+    %nav.navbar.fixed-bottom.navbar-light.bg-faded{style: 'position: fixed; bottom: 0px; right: 100px;'}
+      = paginate @nodes

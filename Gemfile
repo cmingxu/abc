@@ -19,8 +19,6 @@ gem 'net-ssh'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.2'
-# Use mysql as the database for Active Record
-gem 'mysql2', '>= 0.3.18', '< 0.5'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
@@ -69,4 +67,48 @@ gem 'awesome_print'
 gem 'httparty'
 gem 'redis'
 #gem 'marathon-api', :require => 'marathon'
+
+gem 'less-rails'
+gem "twitter-bootstrap-rails"
+gem 'bootstrap-select-rails'
+gem 'jquery-ui-rails'
+
+
+gem 'mysql2'
+gem 'whois-parser'
+
+
+gem 'watir'
+
+
+gem 'annotate'
+gem 'kaminari'
+gem 'carrierwave', '~> 1.0'
+gem "mini_magick"
+gem 'simple_form'
+gem "bower-rails", "~> 0.11.0"
+gem "font-awesome-rails"
+
+gem 'ransack'
+gem 'aasm'
+gem 'chartjs-ror'
+gem 'ace-rails-ap'
+gem 'active_record_union'
+
+
+gem 'rails-bootstrap-markdown'
+
+
+gem "haml-rails", "~> 0.9"
+# Use jquery as the JavaScript library
+gem 'jquery-rails'
+# Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
+gem 'turbolinks', '~> 5'
+# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
+gem 'jbuilder', '~> 2.5'
+gem 'httparty'
+gem 'awesome_print'
+
+gem 'ledermann-rails-settings'
+
 

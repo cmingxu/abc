@@ -14,4 +14,7 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require turbolinks
-//= require_tree .
+//= require Chart.min
+//= require adminlte/dist/js/app.min.js
+
+
