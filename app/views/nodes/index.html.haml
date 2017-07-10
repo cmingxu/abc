@@ -21,6 +21,7 @@
         - @nodes.each do |node|
           %tr
             %td
+              = node.id
               = link_to node.ip, "http://#{node.ip}:#{node.port}", target: "_blank"
               = node.port
             %td= node.apps.map(&:app_id).join " "
