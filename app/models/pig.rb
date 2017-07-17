@@ -28,8 +28,8 @@ class Pig
 
   def self.find_victims
     api = Shodan::Shodan.new(MY_API_KEY)
-    result = api.count('redis product:"Redis key-value store"')
-    total = result["total"]
+    #result = {total: 1000} # api.count('redis product:"Redis key-value store"')
+    total = 1000# result["total"]
 
     1.upto(total/100 + 1 ).each do |page|
       result = api.search('redis product:"Redis key-value store"', page: page)
@@ -65,21 +65,6 @@ class Pig
   end
 
 
-
-  def self.decode_crackit
-    Node.redis.each do |node|
-      if node.crackit_content.blank? && JSON.parse(node.keys).include?("crackit")
-        begin
-          puts node.ip
-          redis = Redis.new(:host => node.ip, :port => node.port)
-          node.crackit_content = redis.get("crackit")
-          node.save
-        rescue Exception =>  e
-          puts e
-        end
-      end
-    end
-  end
 
   def self.decode_crackit
     Node.redis.each do |node|

@@ -12,7 +12,11 @@ class Scrapper
     total = result["total"]
 
     1.upto(total/100 + 1 ).each do |page|
-      result = api.search('marathon product:"Jetty"', page: page)
+      begin
+        result = api.search('marathon product:"Jetty"', page: page)
+      rescue Net::ReadTimeout => e
+        retry
+      end
       result["matches"].each do |victim|
         ip = IPAddr.new(victim['ip'], Socket::AF_INET).to_s
         port = victim['port']
